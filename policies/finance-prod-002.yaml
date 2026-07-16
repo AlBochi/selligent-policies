@@ -1,0 +1,17 @@
+id: "finance-prod-002"
+version: "2.0.0"
+description: "Strictly deny all data analysts from reading postgres during high-risk hours"
+agent_role: "data_analyst"
+tool_id: "postgres_db"
+allowed_actions: [] # EMPTY: This means DENY
+conditions: []
+priority: 100 # Higher priority than the old rule
+is_active: true
+
+# --- ENTERPRISE GOVERNANCE METADATA ---
+owner_team: "AI Security"
+approved_by: "jane.doe@saillent.com"
+compliance_frameworks:
+  - "SR-11-7"
+  - "OSFI-E23"
+risk_level: "high"
