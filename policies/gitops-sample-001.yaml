@@ -1,0 +1,10 @@
+id: "gitops-sample-001"
+version: "1.0.0"
+description: "GitOps Test: Allow data analysts to read from postgres during business hours"
+agent_role: "data_analyst"
+tool_id: "postgres_db"
+allowed_actions:
+  - Read
+conditions: []
+priority: 10
+is_active: true
