@@ -1,0 +1,16 @@
+id: "mcp-security-003"
+version: "1.0.0"
+description: "Block path traversal attempts in MCP tool arguments"
+agent_role: "mcp_agent"
+tool_id: "file_reader"
+allowed_actions:
+  - Execute
+conditions:
+  - !PayloadRegexDeny "\\.\\./"
+priority: 100
+is_active: true
+owner_team: "AI Security"
+approved_by: "jane.doe@saillent.com"
+compliance_frameworks:
+  - "SOC2"
+risk_level: "critical"
