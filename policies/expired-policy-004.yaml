@@ -1,0 +1,15 @@
+id: "expired-policy-004"
+version: "1.0.0"
+description: "This policy is expired and should be ignored by the engine"
+agent_role: "data_analyst"
+tool_id: "postgres_db"
+allowed_actions: [] # Explicitly deny
+conditions: []
+priority: 200 # Higher than gitops-sample-001 (priority 10)
+is_active: true
+expires_at: "2020-01-01T00:00:00Z" # Long expired
+owner_team: "AI Security"
+approved_by: "jane.doe@saillent.com"
+compliance_frameworks:
+  - "SOC2"
+risk_level: "high"
