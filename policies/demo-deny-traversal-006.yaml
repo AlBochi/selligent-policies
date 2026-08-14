@@ -1,7 +1,7 @@
 id: "demo-deny-traversal-006"
 version: "1.0.0"
 description: "Block path traversal payloads in demo traffic"
-agent_role: "anonymous_user"
+agent_role: "ai_user"
 tool_id: "gpt-4"
 allowed_actions:
   - Read
