@@ -1,0 +1,18 @@
+id: "demo-deny-traversal-006"
+version: "1.0.0"
+description: "Block path traversal payloads in demo traffic"
+agent_role: "anonymous_user"
+tool_id: "gpt-4"
+allowed_actions:
+  - Read
+  - Write
+  - Execute
+conditions:
+  - !PayloadRegexDeny "../"
+priority: 100
+is_active: true
+owner_team: "AI Security"
+approved_by: "yaman@saillent.com"
+compliance_frameworks:
+  - "SOC2"
+risk_level: "critical"
