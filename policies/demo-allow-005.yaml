@@ -1,7 +1,7 @@
 id: "demo-allow-005"
 version: "1.0.0"
 description: "Allow anonymous demo traffic to gpt-4 for the live dashboard demo"
-agent_role: "anonymous_user"
+agent_id: "anonymous_user"
 tool_id: "gpt-4"
 allowed_actions:
   - Read
