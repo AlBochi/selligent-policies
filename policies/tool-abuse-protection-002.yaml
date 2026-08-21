@@ -1,0 +1,28 @@
+id: "tool-abuse-protection-002"
+version: "1.0.0"
+description: "Block command injection and path traversal (Part 2 of 2)"
+agent_role: "ai_user"
+tool_id: "gpt-4"
+allowed_actions:
+  - Read
+  - Write
+  - Execute
+conditions:
+  - !PayloadRegexDeny '(?i)~/.ssh'
+  - !PayloadRegexDeny '(?i)\.\./'
+  - !PayloadRegexDeny '(?i);.*cat\s'
+  - !PayloadRegexDeny '(?i);\s*ls'
+  - !PayloadRegexDeny '(?i)\|.*sh'
+  - !PayloadRegexDeny '(?i)bash\s+-i'
+  - !PayloadRegexDeny '(?i)execute_shell.*eval'
+  - !PayloadRegexDeny '(?i)execute_shell.*exec'
+  - !PayloadRegexDeny '(?i)execute_shell.*system'
+  - !PayloadRegexDeny '(?i)execute_shell.*nc\s'
+priority: 175
+is_active: true
+owner_team: "AI Security"
+approved_by: "founder@saillent.com"
+compliance_frameworks:
+  - "SOC2"
+  - "MITRE-ATLAS"
+risk_level: "critical"
