@@ -1,0 +1,17 @@
+id: "base-allow-anonymous-001"
+version: "1.0.0"
+description: "Allow legitimate traffic from anonymous users (attacks blocked by deny policies)"
+agent_role: "anonymous_user"
+tool_id: "gpt-4"
+allowed_actions:
+  - Read
+  - Write
+  - Execute
+conditions: []
+priority: 10
+is_active: true
+owner_team: "AI Security"
+approved_by: "founder@saillent.com"
+compliance_frameworks:
+  - "SOC2"
+risk_level: "low"
