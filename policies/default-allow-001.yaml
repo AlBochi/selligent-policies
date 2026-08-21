@@ -1,8 +1,8 @@
-id: "catch-all-allow-001"
+id: "default-allow-001"
 version: "1.0.0"
-description: "Catch-all allow policy for all traffic (attacks blocked by deny policies)"
-agent_role: "*"
-tool_id: "*"
+description: "Allow legitimate traffic (attacks blocked by master-deny above)"
+agent_role: "ai_user"
+tool_id: "gpt-4"
 allowed_actions:
   - Read
   - Write
