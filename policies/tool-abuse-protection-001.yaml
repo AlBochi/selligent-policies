@@ -1,0 +1,40 @@
+id: "tool-abuse-protection-001"
+version: "1.0.0"
+description: "Block dangerous tool invocation and command injection"
+agent_role: "ai_user"
+tool_id: "gpt-4"
+allowed_actions:
+  - Read
+  - Write
+  - Execute
+conditions:
+  - !PayloadRegexDeny '(?i)execute_shell.*rm'
+  - !PayloadRegexDeny '(?i)execute_shell.*sudo'
+  - !PayloadRegexDeny '(?i)execute_shell.*chmod'
+  - !PayloadRegexDeny '(?i)execute_shell.*wget'
+  - !PayloadRegexDeny '(?i)execute_shell.*curl'
+  - !PayloadRegexDeny '(?i)execute_shell.*nc\s'
+  - !PayloadRegexDeny '(?i)execute_shell.*bash'
+  - !PayloadRegexDeny '(?i)execute_shell.*python'
+  - !PayloadRegexDeny '(?i)execute_shell.*perl'
+  - !PayloadRegexDeny '(?i)execute_shell.*eval'
+  - !PayloadRegexDeny '(?i)execute_shell.*exec'
+  - !PayloadRegexDeny '(?i)execute_shell.*system'
+  - !PayloadRegexDeny '(?i)rm\s+-rf'
+  - !PayloadRegexDeny '(?i)/etc/passwd'
+  - !PayloadRegexDeny '(?i)/etc/shadow'
+  - !PayloadRegexDeny '(?i)~/.ssh'
+  - !PayloadRegexDeny '(?i)\.\./'
+  - !PayloadRegexDeny '(?i);.*cat\s'
+  - !PayloadRegexDeny '(?i);\s*ls'
+  - !PayloadRegexDeny '(?i)\|.*sh'
+  - !PayloadRegexDeny '(?i)bash\s+-i'
+priority: 175
+is_active: true
+owner_team: "AI Security"
+approved_by: "founder@saillent.com"
+compliance_frameworks:
+  - "SOC2"
+  - "MITRE-ATLAS"
+  - "OWASP-LLM-Top-10"
+risk_level: "critical"

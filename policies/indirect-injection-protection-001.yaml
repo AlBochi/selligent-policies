@@ -1,0 +1,28 @@
+id: "indirect-injection-protection-001"
+version: "1.0.0"
+description: "Block indirect prompt injection and context manipulation"
+agent_role: "ai_user"
+tool_id: "gpt-4"
+allowed_actions:
+  - Read
+  - Write
+  - Execute
+conditions:
+  - !PayloadRegexDeny '(?i)important.*new.*instructions'
+  - !PayloadRegexDeny '(?i)system.*message.*from.*admin'
+  - !PayloadRegexDeny '(?i)override.*previous.*response'
+  - !PayloadRegexDeny '(?i)new.*directives.*follow'
+  - !PayloadRegexDeny '(?i)disregard.*user.*input'
+  - !PayloadRegexDeny '(?i)act.*on.*this.*hidden.*instruction'
+  - !PayloadRegexDeny '(?i)do.*not.*show.*this.*to.*user'
+  - !PayloadRegexDeny '(?i)secret.*command.*execute'
+  - !PayloadRegexDeny '(?i)internal.*memo.*priority.*urgent'
+  - !PayloadRegexDeny '(?i)admin.*bypass.*activated'
+priority: 160
+is_active: true
+owner_team: "AI Security"
+approved_by: "founder@saillent.com"
+compliance_frameworks:
+  - "SOC2"
+  - "OWASP-LLM-Top-10"
+risk_level: "high"
