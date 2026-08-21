@@ -1,0 +1,39 @@
+id: "master-deny-claude-3-opus"
+version: "1.0.0"
+description: "Blocks ALL known attacks on claude-3-opus"
+agent_role: "ai_user"
+tool_id: "claude-3-opus"
+allowed_actions:
+  - Read
+  - Write
+  - Execute
+conditions:
+  - !PayloadRegexDeny '\b\d{3}-\d{2}-\d{4}\b'
+  - !PayloadRegexDeny '\b\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}\b'
+  - !PayloadRegexDeny '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b'
+  - !PayloadRegexDeny '(?i)repeat.*words.*above'
+  - !PayloadRegexDeny '(?i)output.*system.*prompt'
+  - !PayloadRegexDeny '(?i)show.*instructions'
+  - !PayloadRegexDeny '(?i)reveal.*initial.*prompt'
+  - !PayloadRegexDeny '(?i)ignore.*previous.*instructions'
+  - !PayloadRegexDeny '(?i)disregard.*all.*prior'
+  - !PayloadRegexDeny '(?i)forget.*everything.*before'
+  - !PayloadRegexDeny '(?i)execute_shell'
+  - !PayloadRegexDeny '(?i)rm\s+-rf'
+  - !PayloadRegexDeny '(?i)/etc/passwd'
+  - !PayloadRegexDeny '(?i)/etc/shadow'
+  - !PayloadRegexDeny '(?i)you.*are.*now.*DAN'
+  - !PayloadRegexDeny '(?i)developer.*mode'
+  - !PayloadRegexDeny '(?i)bypass.*content.*filters'
+  - !PayloadRegexDeny '(?i)important.*new.*instructions'
+  - !PayloadRegexDeny '(?i)disregard.*user.*input'
+priority: 1000
+is_active: true
+posture: Allow
+owner_team: "AI Security"
+approved_by: "founder@saillent.com"
+compliance_frameworks:
+  - "SOC2"
+  - "GDPR"
+  - "NIST-AI-RMF"
+risk_level: "critical"

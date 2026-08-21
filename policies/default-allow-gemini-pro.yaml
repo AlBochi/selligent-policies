@@ -1,0 +1,18 @@
+id: "default-allow-gemini-pro"
+version: "1.0.0"
+description: "Allow legitimate traffic on gemini-pro"
+agent_role: "ai_user"
+tool_id: "gemini-pro"
+allowed_actions:
+  - Read
+  - Write
+  - Execute
+conditions: []
+priority: 1
+is_active: true
+posture: Allow
+owner_team: "AI Security"
+approved_by: "founder@saillent.com"
+compliance_frameworks:
+  - "SOC2"
+risk_level: "low"
