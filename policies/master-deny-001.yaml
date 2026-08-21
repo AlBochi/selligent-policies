@@ -1,5 +1,5 @@
 id: "master-deny-001"
-version: "1.0.0"
+version: "1.0.1"
 description: "Blocks ALL known attacks (PII, injection, jailbreak, tool abuse)"
 agent_role: "ai_user"
 tool_id: "gpt-4"
@@ -29,6 +29,7 @@ conditions:
   - !PayloadRegexDeny '(?i)disregard.*user.*input'
 priority: 1000
 is_active: true
+posture: Allow
 owner_team: "AI Security"
 approved_by: "founder@saillent.com"
 compliance_frameworks:
