@@ -1,0 +1,11 @@
+id: audit-sync-test
+version: "1.0"
+description: "Audit live sync verification"
+agent_role: "*"
+tool_id: "*"
+allowed_actions: ["Read"]
+conditions:
+  - PayloadRegexDeny: "audit-sync-pattern-xyz"
+priority: 999
+is_active: true
+posture: Deny
