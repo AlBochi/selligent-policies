@@ -1,0 +1,11 @@
+id: deny-rm-rf
+version: "1.0"
+description: "Block destructive shell commands"
+agent_role: "*"
+tool_id: "*"
+allowed_actions: ["Read"]
+conditions:
+  - PayloadRegexDeny: "rm -rf /"
+priority: 300
+is_active: true
+posture: Deny
